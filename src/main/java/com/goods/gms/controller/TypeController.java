@@ -23,7 +23,7 @@ public class TypeController {
     @RequestMapping("/createType")
     public String createType(String typeName,  String remarks,Model model) throws UnsupportedEncodingException {
 
-        boolean temp=typeService.createType(typeName);
+        boolean temp=typeService.createType(typeName,remarks,System.currentTimeMillis());
 
         model.addAttribute("message",temp?"类别创建成功":"类别创建失败") ;
         model.addAttribute("backTarget","/addType");

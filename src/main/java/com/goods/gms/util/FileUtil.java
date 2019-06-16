@@ -1,7 +1,6 @@
-package util;
+package com.goods.gms.util;
 
 import com.goods.gms.global.GlobalConstant;
-
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.BufferedOutputStream;

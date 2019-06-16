@@ -17,6 +17,10 @@ public class PurchaseOrder {
     private Timestamp createTimeStamp;//创建时间戳
     private String remarks;//备注
 
+
+    private String goodsName;
+    private String date;
+
     public int getId() {
         return id;
     }
@@ -87,5 +91,21 @@ public class PurchaseOrder {
 
     public void setRemarks(String remarks) {
         this.remarks = remarks;
+    }
+
+    public String getGoodsName() {
+        return goodsName;
+    }
+
+    public void setGoodsName(String goodsName) {
+        this.goodsName = goodsName;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

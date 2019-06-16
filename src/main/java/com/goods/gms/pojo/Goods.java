@@ -1,5 +1,7 @@
 package com.goods.gms.pojo;
 
+import java.sql.Timestamp;
+
 /**
  * 货物
  */
@@ -11,6 +13,11 @@ public class Goods {
      private String imageAdress;//货物图片地址
      private boolean isReturned;//可否退货
      private String remarks;//备注
+    private Timestamp createTimestamp;//创建时间
+
+
+    private  String typeName;
+    private  String date;
 
     public int getId() {
         return id;
@@ -58,5 +65,29 @@ public class Goods {
 
     public void setRemarks(String remarks) {
         this.remarks = remarks;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public Timestamp getCreateTimestamp() {
+        return createTimestamp;
+    }
+
+    public void setCreateTimestamp(Timestamp createTimestamp) {
+        this.createTimestamp = createTimestamp;
     }
 }

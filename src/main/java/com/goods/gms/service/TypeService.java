@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface TypeService {
 
-    boolean createType(String typeName);
+    boolean createType(String typeName,String remarks,long createTimestamp);
 
     List<Type> showAllTypes();
 

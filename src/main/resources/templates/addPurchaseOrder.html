@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>货物管理系统</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet"/>
+    <!-- NProgress -->
+    <link href="css/nprogress.css" rel="stylesheet"/>
+    <!-- iCheck -->
+    <link href="css/green.css" rel="stylesheet"/>
+    <!-- bootstrap-progressbar -->
+    <link href="css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet"/>
+    <!-- JQVMap -->
+    <link href="css/jqvmap.min.css" rel="stylesheet"/>
+
+    <!-- Custom Theme Style -->
+    <link href="css/custom.min.css" rel="stylesheet"/>
+      <link href="css/dropzone.min.css" rel="stylesheet"/>
+
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col"><!--  侧边菜单-->
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;"><!--  菜单头-->
+              <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>货物管理系统</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <!--显示用户信息-->
+            <div class="profile">
+              <div class="profile_pic">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img"/>
+              </div>
+              <div class="profile_info">
+                <span>欢迎,</span>
+                <h2>zhang</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <!-- 菜单项-->
+                <ul class="nav side-menu">
+
+                    <li><a><i class="fa fa-home"></i> 进货订单管理 <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="showPurchaseOrder.html">查看进货订单</a></li>
+                            <li><a href="addPurchaseOrder.html">新增进货订单</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-home"></i> 货物管理 <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="showGoods.html">查看货物</a></li>
+                            <li><a href="addGoods.html">新增货物</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-home"></i> 类别管理 <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="showTypes.html">查看类别</a></li>
+                            <li><a href="addType.html">新增类别</a></li>
+                        </ul>
+                    </li>
+                </ul>
+              </div>
+
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <!-- top tiles -->
+          <!--  表单-->
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>新增进货订单
+                    <small>请将要新增的进货订单信息填入以下表格并提交</small>
+                  </h2>
+
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <br/>
+                  <form id="demo-form2" data-parsley-validate="true" class="form-horizontal form-label-left"
+                        action="/createPurchaseOrder.html" method="post" enctype="multipart/form-data">
+
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">选择货物</label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select class="select2_single form-control" tabindex="-1" name="goodsId">
+                          <option text=" "></option>
+                          <option th:each="item:${goods}" th:value="${item.id}"
+                                  th:text="${item.goodsName}"></option>
+
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">货物计量单位 <span
+                              class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="goodsUnit" required="required"
+                               class="form-control col-md-7 col-xs-12"/>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">进货单价<span
+                              class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="goodsUnitPrice" required="required" id="goodsUnitPrice"
+                               class="form-control col-md-7 col-xs-12"/>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">进货数量<span
+                              class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="goodsQuantity" required="required" id="goodsQuantity"
+                               class="form-control col-md-7 col-xs-12"/>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">进货总价(元)<span
+                              class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="goodsTotalPrice" required="required" id="goodsTotalPrice"
+                               class="form-control col-md-7 col-xs-12"/>
+                      </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">备注 <span
+                              class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="remarks" required=""
+                               class="form-control col-md-7 col-xs-12"/>
+                      </div>
+                    </div>
+
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button type="reset" class="btn btn-primary">取消</button>
+                        <button type="submit" class="btn btn-success">提交</button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /top tiles -->
+
+
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="js/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="js/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="js/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="js/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="js/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="js/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="js/skycons.js"></script>
+    <!-- Flot -->
+
+    <!-- Flot plugins -->
+
+    <!-- DateJS -->
+
+    <!-- JQVMap -->
+    <!-- bootstrap-daterangepicker -->
+    <script src="js/moment/moment.min.js"></script>
+    <script src="js/datepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="js/custom.min.js"></script>
+    <script src="js/dropzone.min.js"></script>
+
+
+    <!-- bootstrap-daterangepicker -->
+    <script>
+      $(document).ready(function() {
+
+        var cb = function(start, end, label) {
+          console.log(start.toISOString(), end.toISOString(), label);
+          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        };
+
+        var optionSet1 = {
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment(),
+          minDate: '01/01/2012',
+          maxDate: '12/31/2015',
+          dateLimit: {
+            days: 60
+          },
+          showDropdowns: true,
+          showWeekNumbers: true,
+          timePicker: false,
+          timePickerIncrement: 1,
+          timePicker12Hour: true,
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          opens: 'left',
+          buttonClasses: ['btn btn-default'],
+          applyClass: 'btn-small btn-primary',
+          cancelClass: 'btn-small',
+          format: 'MM/DD/YYYY',
+          separator: ' to ',
+          locale: {
+            applyLabel: 'Submit',
+            cancelLabel: 'Clear',
+            fromLabel: 'From',
+            toLabel: 'To',
+            customRangeLabel: 'Custom',
+            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+            monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            firstDay: 1
+          }
+        };
+        $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+        $('#reportrange').daterangepicker(optionSet1, cb);
+        $('#reportrange').on('show.daterangepicker', function() {
+          console.log("show event fired");
+        });
+        $('#reportrange').on('hide.daterangepicker', function() {
+          console.log("hide event fired");
+        });
+        $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+          console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+        });
+        $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
+          console.log("cancel event fired");
+        });
+        $('#options1').click(function() {
+          $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+        });
+        $('#options2').click(function() {
+          $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+        });
+        $('#destroy').click(function() {
+          $('#reportrange').data('daterangepicker').remove();
+        });
+      });
+    </script>
+    <!-- /bootstrap-daterangepicker -->
+
+
+    <script>
+        $("#goodsTotalPrice").on("click",function(){
+
+            var total=$("#goodsUnitPrice").val()*$("#goodsQuantity").val();
+            $("#goodsTotalPrice").val(total);
+        })
+
+    </script>
+  </body>
+</html>

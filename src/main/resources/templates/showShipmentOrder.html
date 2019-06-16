@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -121,7 +121,52 @@
           <!-- top tiles -->
 
           <!-- /top tiles -->
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>出货订单信息 <small></small></h2>
 
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>货物名称</th>
+                      <th>出货单位</th>
+                      <th>出货单价</th>
+                      <th>出货数量</th>
+                      <th>出货总价（元）</th>
+                      <th>备注</th>
+                      <th>创建时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item,key:${shipmentOrders}">
+                      <th scope="row" th:text="${key.index}"></th>
+                      <td th:text="${item.goodsName}"></td>
+                      <td th:text="${item.goodsUnit}"></td>
+                      <td th:text="${item.goodsUnitPrice}"></td>
+                      <td th:text="${item.goodsQuantity}"></td>
+                      <td th:text="${item.goodsTotalPrice}"></td>
+                      <td th:text="${item.remarks}"></td>
+                      <td th:text="${item.date}"></td>
+
+
+                    </tr>
+
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+            </div>
+
+
+          </div>
 
         </div>
         <!-- /page content -->

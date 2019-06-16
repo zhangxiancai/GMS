@@ -6,6 +6,8 @@ import com.goods.gms.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -15,12 +17,18 @@ public class TypeServiceImpl implements TypeService {
     private TypeMapper typeMapper;
 
     @Override
-    public boolean createType(String typeName) {
-        return typeMapper.insert(typeName);
+    public boolean createType(String typeName,String remarks,long createTimestamp) {
+        return typeMapper.insert(typeName,remarks,new Timestamp(createTimestamp));
     }
 
     @Override
     public List<Type> showAllTypes() {
-        return typeMapper.selectAllTypes();
+        List<Type> types= typeMapper.selectAllTypes();
+        for (Type type:types ) {
+            type.setDate(type.getCreateTimestamp().toString().substring(0,16));
+
+
+        }
+        return types;
     }
 }

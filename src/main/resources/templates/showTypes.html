@@ -181,13 +181,16 @@
                       <th>#</th>
                       <th>类别名称</th>
                       <th>备注</th>
+                      <th>创建时间</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="item,key:${types}">
                       <th scope="row" th:text="${key.index}"></th>
                       <td th:text="${item.typeName}"></td>
-                      <td th:text="${item.typeName}"></td>
+                      <td th:text="${item.remarks}"></td>
+                      <td th:text="${item.date}"></td>
+
 
                     </tr>
 
