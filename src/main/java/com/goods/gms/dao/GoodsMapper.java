@@ -13,10 +13,14 @@ import java.util.List;
 public interface GoodsMapper {
 
 
-    @Insert("insert into goods(goodsName,typeId,imageAddress,remarks,createTimestamp) " +
-            "values(#{goodsName},#{typeId},#{imageAddress},#{remarks},#{createTimestamp})")
-    public boolean insert(@Param("goodsName") String goodsName, @Param("typeId")int typeId, @Param("imageAddress")String imageAddress,
-                          @Param("remarks")String remarks, @Param("createTimestamp")Timestamp createTimestamp);
+    @Insert("insert into goods(goodsName,typeId,imageAddress,remarks,createTimestamp,goodsUnit) " +
+            "values(#{goodsName},#{typeId},#{imageAddress},#{remarks},#{createTimestamp},#{goodsUnit})")
+    public boolean insert(@Param("goodsName") String goodsName,
+                          @Param("typeId")int typeId,
+                          @Param("imageAddress")String imageAddress,
+                          @Param("remarks")String remarks,
+                          @Param("createTimestamp")Timestamp createTimestamp,
+                          @Param("goodsUnit")String goodsUnit);
 
     @Select("select * from goods limit #{pageNumber} #{pageSize}")
     public List<Goods> selectGoods(@Param("pageNumber")int pageNumber,@Param("pageSize")int pageSize);
@@ -34,5 +38,8 @@ public interface GoodsMapper {
 
     @Select("select name from goods where id=#{id}")
     public String selectNamebyId(int id);
+
+    @Select("SELECT LAST_INSERT_ID()")
+    int returnLastId();
 
 }

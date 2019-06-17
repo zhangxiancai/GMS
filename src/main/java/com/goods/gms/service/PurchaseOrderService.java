@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface PurchaseOrderService {
 
-    boolean createPurchaseOrder(int goodsId, String goodsUnit, BigDecimal goodsQuantity,
+    boolean createPurchaseOrder(int goodsId, BigDecimal goodsQuantity,
                                 BigDecimal goodsUnitPrice, BigDecimal goodsTotalPrice, String remarks);
 
     List<PurchaseOrder> showPurchaserOrders();

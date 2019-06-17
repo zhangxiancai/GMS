@@ -11,13 +11,14 @@ public class ShipmentOrder {
     private int id;
     private int goodsId;//货物id
     private int userId;//用户id
-    private String goodsUnit;//货物量纲
     private BigDecimal goodsQuantity;//货物数量
     private BigDecimal goodsUnitPrice;//货物单价
     private BigDecimal goodsTotalPrice;//货物总价
     private Timestamp createTimeStamp;//创建时间戳
     private String remarks;//备注
 
+
+    private String goodsUnit;//货物量纲
     private String goodsName;
     private String date;
 

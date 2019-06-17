@@ -120,6 +120,7 @@
                         <th>#</th>
                         <th>货物名称</th>
                         <th>类别</th>
+                        <th>计量单位</th>
                         <th>备注</th>
                         <th>创建时间</th>
                     </tr>
@@ -129,6 +130,7 @@
                         <th scope="row" th:text="${key.index}"></th>
                         <td th:text="${item.goodsName}"></td>
                         <td th:text="${item.typeName}"></td>
+                        <td th:text="${item.goodsUnit}"></td>
                         <td th:text="${item.remarks}"></td>
                         <td th:text="${item.date}"></td>
 

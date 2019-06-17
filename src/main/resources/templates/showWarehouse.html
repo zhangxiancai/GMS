@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -50,14 +50,13 @@
                 <span>欢迎,</span>
                 <h2>zhang</h2>
               </div>
-                <div class="clearfix"></div>
             </div>
             <!-- /menu profile quick info -->
 
             <br/>
 
             <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" >
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" style="margin-top: 40px">
 
                 <div class="menu_section">
                     <h3>其他功能</h3>
@@ -138,7 +137,51 @@
           <!-- top tiles -->
 
           <!-- /top tiles -->
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>仓库信息 <small></small></h2>
 
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>货物名称</th>
+                                    <th>货物类别</th>
+                                    <th>库存量</th>
+                                    <th>货物单位</th>
+                                    <th>最新成本价(元)</th>
+                                    <th>最新售价(元)</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="item,key:${warehouses}">
+                                    <th scope="row" th:text="${key.index}"></th>
+                                    <td th:text="${item.goodsName}"></td>
+                                    <td th:text="${item.typeName}"></td>
+                                    <td th:text="${item.stock}"></td>
+                                    <td th:text="${item.goodsUnit}"></td>
+                                    <td th:text="${item.latestCostPrice}"></td>
+                                    <td th:text="${item.latestSellingPrice}"></td>
+
+
+                                </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
 
         </div>
         <!-- /page content -->

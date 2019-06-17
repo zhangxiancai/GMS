@@ -10,10 +10,11 @@ public class Goods {
      private int id;
      private String goodsName;//商品名称
      private int typeId;//类型id
-     private String imageAdress;//货物图片地址
+     private String imageAddress;//货物图片地址
      private boolean isReturned;//可否退货
      private String remarks;//备注
     private Timestamp createTimestamp;//创建时间
+    private String goodsUnit;//货物单位
 
 
     private  String typeName;
@@ -43,12 +44,12 @@ public class Goods {
         this.typeId = typeId;
     }
 
-    public String getImageAdress() {
-        return imageAdress;
+    public String getImageAddress() {
+        return imageAddress;
     }
 
-    public void setImageAdress(String imageAdress) {
-        this.imageAdress = imageAdress;
+    public void setImageAddress(String imageAddress) {
+        this.imageAddress = imageAddress;
     }
 
     public boolean isReturned() {
@@ -89,5 +90,13 @@ public class Goods {
 
     public void setCreateTimestamp(Timestamp createTimestamp) {
         this.createTimestamp = createTimestamp;
+    }
+
+    public String getGoodsUnit() {
+        return goodsUnit;
+    }
+
+    public void setGoodsUnit(String goodsUnit) {
+        this.goodsUnit = goodsUnit;
     }
 }

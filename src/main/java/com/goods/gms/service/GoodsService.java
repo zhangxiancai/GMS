@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface GoodsService {
 
-    boolean createGoods(String goodsName, int typeId, MultipartFile file, String remarks) throws IOException;
+    boolean createGoods(String goodsName, int typeId, MultipartFile file, String remarks,String goodsUnit) throws IOException;
 
     List<Goods> showGoods(Integer pageNumber,Integer pageSize,Integer typeId,String typeName);
     List<Goods> showAllGoods();

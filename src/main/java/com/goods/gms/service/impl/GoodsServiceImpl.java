@@ -2,6 +2,7 @@ package com.goods.gms.service.impl;
 
 import com.goods.gms.dao.GoodsMapper;
 import com.goods.gms.dao.TypeMapper;
+import com.goods.gms.dao.WarehouseMapper;
 import com.goods.gms.global.GlobalConstant;
 import com.goods.gms.pojo.Goods;
 import com.goods.gms.service.GoodsService;
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -26,16 +28,24 @@ public class GoodsServiceImpl implements GoodsService {
     @Autowired
     private TypeMapper typeMapper;
 
+    @Autowired
+    private WarehouseMapper warehouseMapper;
 
     @Transactional
     @Override
-    public boolean createGoods(String goodsName, int typeId, MultipartFile file, String remarks) throws IOException {
+    public boolean createGoods(String goodsName, int typeId, MultipartFile file, String remarks,String goodsUnit) throws IOException {
+
+
 
         long timestamp=System.currentTimeMillis();
         String imageAddress = GlobalConstant.IMAGE_LOCATION+timestamp + "-"+file.getOriginalFilename();
         FileUtil.writeToLocal(file, imageAddress);
+        boolean goodsTemp = goodsMapper.insert(goodsName,typeId,imageAddress,remarks,new Timestamp(timestamp),goodsUnit);
 
-        return goodsMapper.insert(goodsName,typeId,imageAddress,remarks,new Timestamp(timestamp));
+        boolean warehouseTemp=warehouseMapper.insert(goodsMapper.returnLastId(),new BigDecimal(0),
+                new BigDecimal(0),new BigDecimal(0)," ");//更新仓库
+
+        return goodsTemp&&warehouseTemp;
     }
 
     /**

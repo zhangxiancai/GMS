@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ShipmentOrderService {
 
-    boolean createShipmentOrder(int goodsId, String goodsUnit, BigDecimal goodsQuantity,
+    boolean createShipmentOrder(int goodsId, BigDecimal goodsQuantity,
                                 BigDecimal goodsUnitPrice, BigDecimal goodsTotalPrice, String remarks);
 
     List<ShipmentOrder> showShipmentOrders();

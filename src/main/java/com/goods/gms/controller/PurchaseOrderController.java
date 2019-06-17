@@ -33,13 +33,13 @@ public class PurchaseOrderController {
      *
      */
     @RequestMapping("/createPurchaseOrder")
-    public String createPurchaseOrder(int goodsId, String goodsUnit, BigDecimal goodsQuantity,
+    public String createPurchaseOrder(int goodsId, BigDecimal goodsQuantity,
                                       BigDecimal goodsUnitPrice, BigDecimal goodsTotalPrice,
                                       String remarks, Model model)
     {
 
         boolean temp=purchaseOrderService.createPurchaseOrder(goodsId,
-                goodsUnit,goodsQuantity,goodsUnitPrice,goodsTotalPrice,remarks);
+                goodsQuantity,goodsUnitPrice,goodsTotalPrice,remarks);
         model.addAttribute("message",temp?"该进货订单添加成功":"该进货订单添加失败") ;
         model.addAttribute("backTarget","/addPurchaseOrder");
         return "feedback";

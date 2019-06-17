@@ -14,6 +14,10 @@ public class Warehouse {
     private BigDecimal latestSellingPrice;//最新出价
     private String remarks;//备注
 
+    private String goodsName;
+    private String typeName;
+    private String goodsUnit;
+
     public int getId() {
         return id;
     }
@@ -60,5 +64,29 @@ public class Warehouse {
 
     public void setRemarks(String remarks) {
         this.remarks = remarks;
+    }
+
+    public String getGoodsName() {
+        return goodsName;
+    }
+
+    public void setGoodsName(String goodsName) {
+        this.goodsName = goodsName;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+    public String getGoodsUnit() {
+        return goodsUnit;
+    }
+
+    public void setGoodsUnit(String goodsUnit) {
+        this.goodsUnit = goodsUnit;
     }
 }

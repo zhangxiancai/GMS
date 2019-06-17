@@ -29,11 +29,11 @@ public class ShipmentOrderController {
      *新增出货订单
      */
     @RequestMapping("/createShipmentOrder")
-    public String createShipmentOrder(int goodsId, String goodsUnit, BigDecimal goodsQuantity,
+    public String createShipmentOrder(int goodsId, BigDecimal goodsQuantity,
                                       BigDecimal goodsUnitPrice, BigDecimal goodsTotalPrice,
                                       String remarks, Model model){
         boolean temp=shipmentOrderService.createShipmentOrder(goodsId,
-                goodsUnit,goodsQuantity,goodsUnitPrice,goodsTotalPrice,remarks);
+                goodsQuantity,goodsUnitPrice,goodsTotalPrice,remarks);
         model.addAttribute("message",temp?"该出货订单添加成功":"该出货订单添加失败") ;
         model.addAttribute("backTarget","/addShipmentOrder");
         return "feedback";

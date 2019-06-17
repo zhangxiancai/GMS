@@ -32,10 +32,10 @@ public class GoodsController {
      *
      */
     @RequestMapping("/createGoods")
-    public String createGoods(String goodsName, int typeId,  String remarks, HttpServletRequest request, Model model) throws IOException {
+    public String createGoods(String goodsName, int typeId,  String remarks,String goodsUnit, HttpServletRequest request, Model model) throws IOException {
 
         MultipartFile file = ((MultipartHttpServletRequest) request).getFile("file");
-        boolean temp=goodsService.createGoods(goodsName,typeId,file,remarks);
+        boolean temp=goodsService.createGoods(goodsName,typeId,file,remarks,goodsUnit);
         model.addAttribute("message",temp?"该货物添加成功":"该货物添加失败") ;
         model.addAttribute("backTarget","/addGoods");
         return "feedback";
