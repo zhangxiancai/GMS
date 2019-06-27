@@ -18,7 +18,7 @@ public interface TypeMapper {
     @Select("SELECT * FROM type WHERE id=#{id}")
     Type selectById(int id);
 
-    @Select("SELECT * FROM type ")
+    @Select("SELECT * FROM type order by id desc")
     List<Type> selectAllTypes();
 
 

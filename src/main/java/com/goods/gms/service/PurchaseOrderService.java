@@ -1,5 +1,6 @@
 package com.goods.gms.service;
 
+import com.goods.gms.pojo.DaySpending;
 import com.goods.gms.pojo.PurchaseOrder;
 import org.apache.ibatis.annotations.Param;
 
@@ -13,4 +14,7 @@ public interface PurchaseOrderService {
                                 BigDecimal goodsUnitPrice, BigDecimal goodsTotalPrice, String remarks);
 
     List<PurchaseOrder> showPurchaserOrders();
+
+    List<DaySpending> showDaySpending();
+
 }

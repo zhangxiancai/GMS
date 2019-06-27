@@ -25,7 +25,7 @@ public interface GoodsMapper {
     @Select("select * from goods limit #{pageNumber} #{pageSize}")
     public List<Goods> selectGoods(@Param("pageNumber")int pageNumber,@Param("pageSize")int pageSize);
 
-    @Select("select * from goods")
+    @Select("select * from goods order by id desc")
     public List<Goods> selectAllGoods();
 
     @Select("select * from goods where goodsName=#{goodsName} limit #{pageNumber} #{pageSize}")

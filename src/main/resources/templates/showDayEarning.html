@@ -147,7 +147,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>仓库信息 <small></small></h2>
+                            <h2>日收入 <small>日收入是每天的营业总额</small></h2>
 
                             <div class="clearfix"></div>
                         </div>
@@ -157,24 +157,18 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>货物名称</th>
-                                    <th>货物类别</th>
-                                    <th>库存量</th>
-                                    <th>货物单位</th>
-                                    <th>最新进价(元)</th>
-                                    <th>最新售价(元)</th>
+                                    <th>日收入(元)</th>
+                                    <th>备注</th>
+                                    <th>日期</th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="item,key:${warehouses}">
+                                <tr th:each="item,key:${dayEarnings}">
                                     <th scope="row" th:text="${key.index}"></th>
-                                    <td th:text="${item.goodsName}"></td>
-                                    <td th:text="${item.typeName}"></td>
-                                    <td th:text="${item.stock}"></td>
-                                    <td th:text="${item.goodsUnit}"></td>
-                                    <td th:text="${item.latestCostPrice}"></td>
-                                    <td th:text="${item.latestSellingPrice}"></td>
+                                    <td th:text="${item.dayEarning}"></td>
+                                    <td th:text="${item.remarks}"></td>
+                                    <td th:text="${item.date}"></td>
 
 
                                 </tr>

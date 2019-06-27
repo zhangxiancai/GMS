@@ -19,7 +19,16 @@ public class PurchaseOrder {
 
     private String goodsUnit;//货物量纲
     private String goodsName;
-    private String date;
+    private String date;//转化为字符串
+    private int temp;//按日期分类标识
+
+    public int getTemp() {
+        return temp;
+    }
+
+    public void setTemp(int temp) {
+        this.temp = temp;
+    }
 
     public int getId() {
         return id;

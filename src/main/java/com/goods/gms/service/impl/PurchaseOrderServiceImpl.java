@@ -4,6 +4,7 @@ import com.goods.gms.dao.GoodsMapper;
 import com.goods.gms.dao.PurchaseOrderMapper;
 import com.goods.gms.dao.WarehouseMapper;
 import com.goods.gms.global.GlobalConstant;
+import com.goods.gms.pojo.DaySpending;
 import com.goods.gms.pojo.PurchaseOrder;
 import com.goods.gms.service.PurchaseOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,10 +45,22 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
     @Override
     public List<PurchaseOrder> showPurchaserOrders() {
         List<PurchaseOrder> purchaseOrders= purchaseOrderMapper.selectAllPurchaseOrder();
-        for(PurchaseOrder purchaseOrder:purchaseOrders){
-            purchaseOrder.setDate(purchaseOrder.getCreateTimeStamp().toString().substring(0,16));
+        List<PurchaseOrder> purchaseOrdersTemp= purchaseOrderMapper.selectPurchaseOrderTemp();
+        for(int index=0;index<purchaseOrders.size();index++){
+            purchaseOrders.get(index).setDate(purchaseOrders.get(index).getCreateTimeStamp().toString().substring(0,16));
+            purchaseOrders.get(index).setTemp(purchaseOrdersTemp.get(index).getTemp());
         }
         return purchaseOrders;
+    }
+
+    @Override
+    public List<DaySpending> showDaySpending() {
+        List<DaySpending> daySpendings= purchaseOrderMapper.selectDaySpending();
+        for (DaySpending daySpending:daySpendings) {
+            daySpending.setStringDate(daySpending.getDate().toString().substring(0,10));
+        }
+
+        return daySpendings;
     }
 
     /**

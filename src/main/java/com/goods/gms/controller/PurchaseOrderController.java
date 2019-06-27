@@ -2,6 +2,8 @@ package com.goods.gms.controller;
 
 
 import com.goods.gms.dao.GoodsMapper;
+import com.goods.gms.dao.PurchaseOrderMapper;
+import com.goods.gms.pojo.DaySpending;
 import com.goods.gms.pojo.PurchaseOrder;
 import com.goods.gms.service.GoodsService;
 import com.goods.gms.service.PurchaseOrderService;
@@ -66,12 +68,24 @@ public class PurchaseOrderController {
     public String showPurchaseOrder(Model model){
         List<PurchaseOrder> purchaseOrders=purchaseOrderService.showPurchaserOrders();
         model.addAttribute("purchaseOrders",purchaseOrders);
+
         return "showPurchaseOrder";
 
 
     }
 
 
+    /**
+     * 查看日支出
+     *
+     */
+    @RequestMapping("/showDaySpending")
+    public String showDaySpending(Model model){
+        List<DaySpending> daySpendings=purchaseOrderService.showDaySpending();
+        model.addAttribute("daySpendings",daySpendings);
+        return "showDaySpending";
 
+
+    }
 
 }
