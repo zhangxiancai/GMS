@@ -30,6 +30,16 @@
   </head>
 
   <body class="nav-md">
+
+  <style type="text/css">
+
+      .trColor{
+          background-color:gainsboro;
+      }
+
+
+  </style>
+
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col"><!--  侧边菜单-->
@@ -47,7 +57,7 @@
                 <img src="images/img.jpg" alt="..." class="img-circle profile_img"/>
               </div>
               <div class="profile_info">
-                <span>欢迎,</span>
+                <span>欢迎您!</span>
                 <h2>zhang</h2>
               </div>
                 <div class="clearfix"></div>
@@ -164,7 +174,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="item,key:${dayEarnings}">
+                                <tr th:each="item,key:${dayEarnings}" th:class="${key.index}%2==1?'trColor':''">
                                     <th scope="row" th:text="${key.index}"></th>
                                     <td th:text="${item.dayEarning}"></td>
                                     <td th:text="${item.remarks}"></td>
