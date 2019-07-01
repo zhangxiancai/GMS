@@ -5,7 +5,9 @@ Goods Management System 货物管理系统
 
 数据库密码：123456
 
-货物图片地址：D://images/
+货物图片地址：D://images/，暂不显示图片
 
 项目启动时不执行sql文件
+
+19/7/1
 
